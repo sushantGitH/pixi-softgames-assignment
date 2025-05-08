@@ -19,6 +19,6 @@ export class MainMenu extends Component {
     }
 
     loadPhoenixFlame() {
-        director.loadScene('phoenix-flame');
+        director.loadScene('Flame');
     }
 }
