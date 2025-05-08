@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, Node, Sprite, tween, UIOpacity, UITransform } from 'cc';
+import { _decorator, Color, Component, Label, Node, Sprite, tween, UIOpacity, UITransform } from 'cc';
 import { AvatarData, Chunk } from './MagicWords';
 const { ccclass, property } = _decorator;
 
@@ -42,9 +42,12 @@ export class MsgData extends Component {
                 const labelNode = new Node();
                 const label = labelNode.addComponent(Label);
                 label.string = chunk.value;
-                label.fontSize = 20;
+                label.fontSize = 22;
                 label.lineHeight = 30;
                 label.node.parent = this.dialogueLayout;
+                label.enableOutline = true;
+                label.outlineColor = (new Color(255, 0, 0, 255));
+                label.outlineWidth = 2;
             } else if (chunk.type === 'img') {
                 const spriteFrame = chunk.value;
                 if (spriteFrame) {
