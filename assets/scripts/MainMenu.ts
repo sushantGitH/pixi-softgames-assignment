@@ -15,7 +15,7 @@ export class MainMenu extends Component {
     }
 
     loadMagicWords() {
-        director.loadScene('magic-words');
+        director.loadScene('MagicWord');
     }
 
     loadPhoenixFlame() {
