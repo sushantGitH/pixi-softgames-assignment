@@ -25,11 +25,15 @@ export class MagicWords extends Component {
     @property({ type: Node })
     private dialogueLayout: Node = null;
 
+    @property({ type: Node })
+    private chatNode: Node = null;
+
     private emojiMap: Map<string, SpriteFrame> = new Map();
     private avatarMap = new Map<string, AvatarData>();
     private dialogue: { name: string; chunks: Chunk[] }[] = [];
 
     onLoad() {
+        this.chatNode.active = true;
         this.run();
     }
 
@@ -40,9 +44,7 @@ export class MagicWords extends Component {
 
             const { emojiMap, avatarMap, processedDialogue } = await this.processApiData(data);
 
-            console.log('Emoji Map:', emojiMap);
-            console.log('Avatar Map:', avatarMap);
-            console.log('Processed Dialogue:', processedDialogue);
+            this.chatNode.active = false;
 
             this.emojiMap = emojiMap;
             this.avatarMap = avatarMap;
